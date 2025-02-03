@@ -18,3 +18,19 @@
 </div>
 
 <img src="https://raw.githubusercontent.com/amitind/amitind/output/snake.svg" alt="Snake animation" />
+
+```json
+{
+"name": "Amit Yadav",
+"short_name": "Amit",
+"works_at": ["The Tech Basket","Quoted Tale"]
+"social": {
+  "X": "AmitTheGamer",
+},
+"favourite_languages": [
+  "JavaScript",
+  "TypeScript",
+  "Svelte"
+  ]
+}
+```
