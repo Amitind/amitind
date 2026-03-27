@@ -19,7 +19,8 @@ jobs:
 
     steps:
       - name: Ensure dist exists
-        run: mkdir -p dist
+        run: |
+          mkdir -p dist
         
       - name: generate snake.svg
         uses: Platane/snk/svg-only@v3
@@ -42,8 +43,26 @@ jobs:
           # exclude-orgs: 'calculatorbit,thetechbasket'
       - name: Fetch file
         run: |
-          curl -L "https://profile-counter.glitch.me/amitind/count.svg" -o dist/count.svg
-          curl -L "https://streak-stats.demolab.com?user=amitind&locale=en&mode=daily&theme=tokyonight&hide_border=true&border_radius=20" -o dist/streak-stats.svg
+          set -e
+          
+          fetch() {
+            url="$1"
+            output="$2"
+            tmp="${output}.tmp"
+      
+            echo "Fetching: $url"
+      
+            if curl -fsSL --max-time 15 "$url" -o "$tmp"; then
+              mv "$tmp" "$output"
+              echo "Saved: $output"
+            else
+              echo "Skipped: $output (request failed)"
+              rm -f "$tmp"
+            fi
+          }
+          
+          fetch "https://profile-counter.glitch.me/amitind/count.svg" "dist/count.svg"
+          fetch "https://streak-stats.demolab.com?user=amitind&locale=en&mode=daily&theme=tokyonight&hide_border=true&border_radius=20" "dist/streak-stats.svg"
           
       - name: Verify files
         run: ls -la dist
