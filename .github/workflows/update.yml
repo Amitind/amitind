@@ -18,6 +18,9 @@ jobs:
     timeout-minutes: 5
 
     steps:
+      - name: Ensure dist exists
+        run: mkdir -p dist
+        
       - name: generate snake.svg
         uses: Platane/snk/svg-only@v3
         with:
@@ -28,11 +31,12 @@ jobs:
       - name: generate OSS stats badge # https://github.com/mabd-dev/gh-oss-stats-action#inputs
         uses: mabd-dev/gh-oss-stats-action@v0.2.1
         with:
-          auto-commit: false
+          commit-badge: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          badge-path: 'dist/oss-badge.svg'
+          badge-output-path: 'dist/oss-badge.svg'
           badge-style: 'detailed'      
-          badge-theme: 'nord'          
+          badge-theme: 'nord'
+          badge-limit: '10'
           # badge-variant: 'text-based'  
           # min-stars: '100'             
           # exclude-orgs: 'calculatorbit,thetechbasket'
@@ -40,8 +44,11 @@ jobs:
         run: |
           curl -L "https://profile-counter.glitch.me/amitind/count.svg" -o dist/count.svg
           curl -L "https://streak-stats.demolab.com?user=amitind&locale=en&mode=daily&theme=tokyonight&hide_border=true&border_radius=20" -o dist/streak-stats.svg
-
-      - name: push snake.svg to the output branch
+          
+      - name: Verify files
+        run: ls -la dist
+        
+      - name: push to the output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
