@@ -17,6 +17,8 @@
   <img src="https://github.com/Amitind/amitind/blob/output/streak-stats.svg?raw=true" height="150" alt="streak graph"  />
 
 <img src="https://github.com/Amitind/amitind/blob/output/snake.svg?raw=true" alt="Snake animation" />
+
+<img src="https://github.com/Amitind/amitind/blob/output/oss-badge.svg?raw=true" alt="OSS badge" />
 </div>
 
 ```json
