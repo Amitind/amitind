@@ -23,6 +23,18 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: dist/snake.svg?palette=github-dark
+          # Step 3: Generate the OSS badge inside 'dist'
+          
+      - name: generate OSS stats badge
+        uses: mabd-dev/gh-oss-stats-action@v0.2.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          badge-path: 'dist/oss-badge.svg'
+          badge-style: 'detailed'      
+          badge-theme: 'nord'          
+          # badge-variant: 'text-based'  
+          # min-stars: '100'             
+          # exclude-orgs: 'calculatorbit,thetechbasket'
 
 
       - name: push snake.svg to the output branch
