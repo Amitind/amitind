@@ -25,9 +25,10 @@ jobs:
           outputs: dist/snake.svg?palette=github-dark
           # Step 3: Generate the OSS badge inside 'dist'
           
-      - name: generate OSS stats badge
+      - name: generate OSS stats badge # https://github.com/mabd-dev/gh-oss-stats-action#inputs
         uses: mabd-dev/gh-oss-stats-action@v0.2.1
         with:
+          auto-commit: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
           badge-path: 'dist/oss-badge.svg'
           badge-style: 'detailed'      
@@ -35,7 +36,10 @@ jobs:
           # badge-variant: 'text-based'  
           # min-stars: '100'             
           # exclude-orgs: 'calculatorbit,thetechbasket'
-
+      - name: Fetch file
+        run: |
+          curl -L "https://profile-counter.glitch.me/amitind/count.svg" -o dist/count.svg
+          curl -L "https://streak-stats.demolab.com?user=amitind&locale=en&mode=daily&theme=tokyonight&hide_border=true&border_radius=20" -o dist/streak-stats.svg
 
       - name: push snake.svg to the output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
