@@ -1,0 +1,34 @@
+# Builds the profile README cards on the Pi (Woodpecker, ci.sumityadav.in) and
+# force-pushes them to the `output` branch, which the README images point at.
+# Secret: GH_TOKEN, a fine-grained PAT for Amitind/amitind with Contents
+# read/write (public data needs no extra scope). Schedule is a Woodpecker UI cron
+# (repo settings > Crons): name `cards`, 0 */6 * * *.
+# Commits go to a non-default branch (amit@thetechbasket.com as author), and GitHub only
+# counts default-branch commits, so they never show in the contribution graph.
+when:
+  - event: [cron, manual]
+  - event: push
+    branch: main
+    path: [scripts/**, .woodpecker.yml]
+
+clone:
+  git:
+    image: woodpeckerci/plugin-git
+    settings:
+      depth: 1
+
+steps:
+  - name: build and publish cards
+    image: node:24-alpine
+    environment:
+      GH_TOKEN:
+        from_secret: GH_TOKEN
+      OWNERS: TheTechBasket
+    commands:
+      - apk add --no-cache git
+      - node scripts/cards.mjs
+      - cd dist
+      - git init -q -b output
+      - git add .
+      - git -c user.name=profile-cards -c user.email=amit@thetechbasket.com commit -qm "Update cards"
+      - git push -qf "https://x-access-token:$GH_TOKEN@github.com/${CI_REPO}.git" output
