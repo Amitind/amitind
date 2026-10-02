@@ -1,19 +1,19 @@
 ### Hi there <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="5%">
 
 <p>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/stats-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/stats-light.svg" width="415" alt="GitHub stats"></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/streak-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/streak-light.svg" width="415" alt="Contribution streak"></picture>
+  <a href="https://github.com/Amitind?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/stats-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/stats-light.svg" width="415" alt="GitHub stats"></picture></a>
+  <a href="https://github.com/Amitind"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/streak-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/streak-light.svg" width="415" alt="Contribution streak"></picture></a>
 </p>
 <p>
   <a href="https://github.com/search?q=user%3AAmitind+user%3ATheTechBasket+fork%3Afalse+archived%3Afalse&type=repositories&s=stars&o=desc"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/projects-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/projects-light.svg" width="415" alt="Open source projects, most starred first"></picture></a>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/oss-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/oss-light.svg" width="415" alt="Merged pull requests to other projects"></picture>
+  <a href="https://github.com/search?q=author%3AAmitind+is%3Apr+is%3Amerged+-user%3AAmitind+-user%3ATheTechBasket&type=pullrequests&s=updated&o=desc"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/oss-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/oss-light.svg" width="415" alt="Merged pull requests to other projects"></picture></a>
 </p>
 <p>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/releases-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/releases-light.svg" width="415" alt="Recent releases"></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/activity-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/activity-light.svg" width="415" alt="Recent activity"></picture>
+  <a href="https://github.com/Amitind?tab=repositories&sort=updated"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/releases-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/releases-light.svg" width="415" alt="Recent releases"></picture></a>
+  <a href="https://github.com/Amitind"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/activity-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/activity-light.svg" width="415" alt="Recent activity"></picture></a>
 </p>
 <p>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/langs-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/langs-light.svg" width="834" alt="Most used languages"></picture>
+  <a href="https://github.com/Amitind?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/langs-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/langs-light.svg" width="834" alt="Most used languages"></picture></a>
 </p>
 
 #### What I build with
@@ -31,17 +31,3 @@
   <a href="https://woodpecker-ci.org"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/stack-woodpeckerci-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/stack-woodpeckerci-light.svg" height="32" alt="Woodpecker CI"></picture></a>
   <a href="https://marketingplatform.google.com/about/analytics/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Amitind/amitind/output/stack-googleanalytics-dark.svg"><img src="https://raw.githubusercontent.com/Amitind/amitind/output/stack-googleanalytics-light.svg" height="32" alt="GA4"></picture></a>
 </p>
-
-```json
-{
-  "name": "Amit Yadav",
-  "short_name": "Amit",
-  "works_at": ["The Tech Basket", "Quoted Tale"],
-  "social": {
-    "X": "AmitTheGamer"
-  },
-  "favourite_languages": ["JavaScript", "TypeScript", "Svelte"]
-}
-```
-
-<sub>Cards are built every 6 hours by <a href="scripts/cards.mjs">scripts/cards.mjs</a> from the GitHub API.</sub>
