@@ -1,7 +1,7 @@
 # Builds the profile README cards on the Pi (Woodpecker, ci.sumityadav.in) and
 # force-pushes them to the `output` branch, which the README images point at.
-# Secret: GH_TOKEN, a fine-grained PAT for Amitind/amitind with Contents
-# read/write (public data needs no extra scope). Schedule is a Woodpecker UI cron
+# Secret: GH_TOKEN, a classic PAT with repo + read:user (no read:org needed),
+# allowed on cron, manual and push events. Schedule is a Woodpecker UI cron
 # (repo settings > Crons): name `cards`, 0 */6 * * *.
 # Commits go to a non-default branch (amit@thetechbasket.com as author), and GitHub only
 # counts default-branch commits, so they never show in the contribution graph.

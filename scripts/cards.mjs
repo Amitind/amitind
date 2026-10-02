@@ -47,7 +47,7 @@ async function load() {
   const login = process.env.GH_USER || (await gql('{viewer{login}}')).viewer.login;
   const base = (await gql(
     `query($login:String!){user(login:$login){
-      login followers{totalCount} organizations(first:50){nodes{login}}
+      login followers{totalCount}
       pullRequests(states:MERGED){totalCount}
       repositoriesContributedTo(first:1,includeUserRepositories:false,contributionTypes:[COMMIT,PULL_REQUEST,ISSUE,REPOSITORY]){totalCount}
       contributionsCollection{contributionYears totalCommitContributions restrictedContributionsCount
@@ -90,7 +90,7 @@ async function load() {
     const page = (await gql(
       `query($q:String!,$after:String){search(query:$q,type:ISSUE,first:100,after:$after){
         pageInfo{hasNextPage endCursor}
-        nodes{...on PullRequest{repository{nameWithOwner stargazerCount owner{login}}}}}}`,
+        nodes{...on PullRequest{repository{nameWithOwner stargazerCount viewerPermission owner{login}}}}}}`,
       { q: `author:${login} type:pr is:merged -user:${login}`, after })).search;
     prs.push(...page.nodes);
     if (!page.pageInfo.hasNextPage) break;
@@ -98,7 +98,9 @@ async function load() {
   }
 
   const events = await gh(`/users/${login}/events/public?per_page=100`);
-  return { login, base, repos: visible, mine, days, prs, events };
+  // Public org memberships only: the GraphQL organizations field needs the read:org scope.
+  const orgs = (await gh(`/users/${login}/orgs`)).map((o) => o.login);
+  return { login, base, repos: visible, mine, days, prs, events, orgs };
 }
 
 // ---------- svg helpers ----------
@@ -277,12 +279,12 @@ function releases({ repos }, t) {
     body || empty('No releases yet.', t), t, more(list.length, shown.length, 'repos'), Math.max(H, tallH(shown.length)));
 }
 
-function oss({ prs, base, login }, t) {
-  const own = new Set([login, ...OWNERS, ...base.organizations.nodes.map((o) => o.login)].map((s) => s.toLowerCase()));
+function oss({ prs, orgs, login }, t) {
+  const own = new Set([login, ...OWNERS, ...orgs].map((s) => s.toLowerCase()));
   const byRepo = new Map();
   for (const p of prs) {
     const r = p.repository;
-    if (!r || (!process.env.OSS_INCLUDE_ORGS && own.has(r.owner.login.toLowerCase()))) continue;
+    if (!r || (!process.env.OSS_INCLUDE_ORGS && (own.has(r.owner.login.toLowerCase()) || r.viewerPermission === 'ADMIN'))) continue; // ADMIN catches orgs with private membership
     const cur = byRepo.get(r.nameWithOwner) || { stars: r.stargazerCount, count: 0 };
     cur.count++;
     byRepo.set(r.nameWithOwner, cur);
