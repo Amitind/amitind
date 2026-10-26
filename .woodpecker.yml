@@ -5,6 +5,10 @@
 # (repo settings > Crons): name `cards`, 30 0 * * * UTC (daily, 06:00 IST).
 # Commits go to a non-default branch (amit@thetechbasket.com as author), and GitHub only
 # counts default-branch commits, so they never show in the contribution graph.
+# Agent routing: no host volumes, so any agent may run this (Pi or Fedora). See pi5/wood-ci/README.md.
+labels:
+  pool: shared
+
 when:
   - event: [cron, manual]
 
