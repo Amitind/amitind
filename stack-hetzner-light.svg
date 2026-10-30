@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="94" height="32" viewBox="0 0 94 32" role="img" aria-label="Hetzner">
+<rect x="0.5" y="0.5" width="93" height="31" rx="6" fill="none" stroke="#d1d9e0"/>
+<path transform="translate(10 8) scale(0.6667)" fill="#1f2328" d="M0 0v24h24V0H0zm4.602 4.025h2.244c.509 0 .716.215.716.717v5.64h8.883v-5.64c0-.509.215-.717.717-.717h2.229c.5 0 .71.23.724.717v14.516c0 .509-.215.717-.717.717h-2.23c-.51 0-.717-.215-.717-.717v-5.735H7.562v5.735c0 .516-.215.717-.716.717H4.602c-.51 0-.717-.208-.717-.717V4.742c0-.509.207-.717.717-.717z"/>
+<text x="32" y="21" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif;font-size:13px;fill:#1f2328">Hetzner</text>
+</svg>
